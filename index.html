@@ -58,6 +58,15 @@
             color: #fff;
             font-size: 18px;
         }
+
+        /* Quote section styles */
+        .quote-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -70,12 +79,50 @@
 
     <!-- Main content -->
     <div class="container" id="home">
-        <h1>Prince Kumar</h1>
+        <h1>Welcome to My Website</h1>
         <p>
-            Hello! I'm Prince Kumar, and I'm excited to have you visit my website.
-            
-I am a computer programmer.
+            Hello! I'm [Your Name], and I'm excited to have you visit my website.
+            [Add your introduction here.]
         </p>
     </div>
+
+    <!-- Quote section -->
+    <div class="quote-container" id="quote-container">
+        <p id="quote-text">This is a beautiful quote.</p>
+        <p id="quote-author">— Author Name</p>
+    </div>
+
+    <script>
+        // JavaScript for fading in and out the quote section
+        const quoteContainer = document.getElementById('quote-container');
+        const quoteText = document.getElementById('quote-text');
+        const quoteAuthor = document.getElementById('quote-author');
+
+        const quotes = [
+            { text: "This is a beautiful quote 1.", author: "— Author 1" },
+            { text: "This is a beautiful quote 2.", author: "— Author 2" },
+            { text: "This is a beautiful quote 3.", author: "— Author 3" }
+            // Add more quotes here
+        ];
+
+        let index = 0;
+
+        function displayQuote() {
+            const quote = quotes[index];
+            quoteText.textContent = quote.text;
+            quoteAuthor.textContent = quote.author;
+            quoteContainer.style.display = 'block';
+            setTimeout(hideQuote, 5000); // Display each quote for 5 seconds
+            index = (index + 1) % quotes.length;
+        }
+
+        function hideQuote() {
+            quoteContainer.style.display = 'none';
+            setTimeout(displayQuote, 1000); // Wait 1 second before displaying the next quote
+        }
+
+        // Start displaying quotes
+        displayQuote();
+    </script>
 </body>
 </html>
